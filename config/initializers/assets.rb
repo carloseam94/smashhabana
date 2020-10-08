@@ -12,3 +12,11 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
+
+# css
+Rails.application.config.assets.precompile += ['bootstrap/bootstrap.min.css']
+Rails.application.config.assets.precompile += ['bootstrap/pluggins/_carousel.css']
+
+# js
+Rails.application.config.assets.precompile += ['jquery/jquery.min.js']
+Rails.application.config.assets.precompile += ['bootstrap/bootstrap.bundle.min.js']
