@@ -4,16 +4,27 @@
     <title>SmashHabana</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'bootstrap/bootstrap.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag 'bootstrap/pluggins/_carousel.css', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+    <%= stylesheet_link_tag 'page_loader.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-
   </head>
-
   <body>
+    <div id="loading">
+      <%= image_tag('loader.webp', id: 'loading-image') %>
+    </div>
     <%= yield %>
+    <%= javascript_include_tag 'jquery/jquery.min.js' %>
+    <%= javascript_include_tag 'bootstrap/bootstrap.bundle.min.js' %>
+    <script>
+      window.addEventListener("DOMContentLoaded", () => { 
+        // $(window).load(function() {
+          $('#loading').hide();
+        // });
+      });
+    </script>
   </body>
 </html>
+
+
