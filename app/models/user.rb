@@ -12,5 +12,9 @@ class User < ApplicationRecord
    # admin roles
    GOD = 'g'
    ADMIN = 'a'
+
+   def to_param
+       username
+   end
    
 end

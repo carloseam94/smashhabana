@@ -13,11 +13,15 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 
+Rails.application.config.assets.paths << Rails.root.join('node_modules')
+
 # css
 Rails.application.config.assets.precompile += ['bootstrap/bootstrap.min.css']
 Rails.application.config.assets.precompile += ['bootstrap/pluggins/_carousel.css']
 Rails.application.config.assets.precompile += ['login/style.css']
 Rails.application.config.assets.precompile += ['page_loader.css']
+Rails.application.config.assets.precompile += ['font-awesome/css/font-awesome.css']
+
 
 # js
 Rails.application.config.assets.precompile += ['jquery/jquery.min.js']
