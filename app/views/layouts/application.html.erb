@@ -6,6 +6,7 @@
     <%= csp_meta_tag %>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'smashhabana', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'bootstrap/bootstrap.min.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'page_loader.css', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag 'font-awesome/css/font-awesome.css', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -15,16 +16,16 @@
     <div id="loading">
       <%= image_tag('loader.webp', id: 'loading-image') %>
     </div>
-    <%= yield %>
-    <%= javascript_include_tag 'jquery/jquery.min.js' %>
-    <%= javascript_include_tag 'bootstrap/bootstrap.bundle.min.js' %>
-    <script>
-      window.addEventListener("load", () => { 
-        setTimeout(() => {
-          document.getElementById('loading').classList.add('d-none');
-        }, 300);
-      });
-    </script>
+      <%= yield %>
+      <%= javascript_include_tag 'jquery/jquery.min.js' %>
+      <%= javascript_include_tag 'bootstrap/bootstrap.bundle.min.js' %>
+      <script>
+        window.addEventListener("load", () => { 
+          setTimeout(() => {
+            document.getElementById('loading').classList.add('d-none');
+          }, 300);
+        });
+      </script>
   </body>
 </html>
 

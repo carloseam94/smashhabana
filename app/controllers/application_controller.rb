@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  before_action :configure_permitted_parameters, if: :devise_controller?
+
   def set_user
     username = params[:username] || params[:user_username]
     @user = User.find_by(username: username)
@@ -12,4 +14,12 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
+  protected
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:username, :full_name, :email, :desc, :password) }
+    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:username, :full_name, :email, :desc, :avatar, :main, :password, :current_password, :confirmation_password) }
+  end
+
 end
