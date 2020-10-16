@@ -1,65 +1,88 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
-  <%= resource.to_json %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autocomplete: "username" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :full_name %><br />
-    <%= f.text_field :full_name, autocomplete: "fullname" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :desc %><br />
-    <%= f.text_area :desc, autocomplete: "desc" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :avatar %><br />
-    <%= f.file_field :avatar, autocomplete: "avatar" %>
-  </div>
-
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> characters minimum</em>
-    <% end %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
+<%= stylesheet_link_tag 'login/style.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+<%= stylesheet_link_tag 'image-picker.css', media: 'all', 'data-turbolinks-track': 'reload' %>
+<main role="main">
+  <!-- <%= render 'layouts/top_ribbon' %> -->
+  <section class="signup">
+    <div class="container">
+      <div class="signup-content">
+        <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+          <%= render "devise/shared/error_messages", resource: resource %>
+          <h2 class="form-title">Edit Account</h2>
+          <div class="form-group text-center">
+            <%= image_tag(user_avatar_url(current_user), class: 'user-avatar-m', id: 'avatar_img') %>
+            <%= f.file_field :avatar, class: 'd-none' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :full_name, "Full Name" %>
+            <%= f.text_field :full_name, autocomplete: "full_name", class: "form-input", placeholder: "Full Name" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :username, "Username" %>
+            <%= f.text_field :username, autocomplete: "username", class: "form-input", placeholder: "User Name" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :desc, "Description" %>
+            <%= f.text_area :desc, autocomplete: "desc", class: "form-input", placeholder: "Description" %>
+          </div>
+          <div class="form-group">
+            <button class="form-submit mb-4" data-toggle="collapse" data-target="#collapse_target" onclick="return false;">Change Character</button>
+            <div class="collapse" id="collapse_target">
+              <%= f.select :character_id, options_for_select(Character.all.map{ |c| [c.full_name, c.id, {'data-img-src'=>url_for(c.icon)}] }, selected_key = f.object.character_id) %>
+            </div>
+          </div>
+          <div class="form-group">
+            <%= f.label :email, "Email" %>
+            <%= f.email_field :email, autocomplete: "email", class: "form-input", placeholder: "Email" %>
+          </div>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+          <% end %>
+          <div class="form-group">
+            <%= f.label :password, "New Password" %> <br />
+            <i>(leave blank if you don't want to change it)</i> <br />
+            <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= f.password_field :password, autocomplete: "new-password" , class: "form-input", placeholder:"Password"%>
+            <span toggle="#password" class="zmdi zmdi-eye field-icon toggle-password"></span>
+          </div>
+          <div class="form-group">
+            <%= f.label :password_confirmation, "Confirm Password" %>
+            <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-input", placeholder: "Confirm Password" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :current_password, "Current Password" %> <br />
+            <i>(we need your current password to confirm your changes)</i>
+            <%= f.password_field :current_password, autocomplete: "current-password", class: "form-input", placeholder: "Current Password" %>
+          </div>
+          <div class="form-group">
+            <%= f.submit "Update", class: "form-submit"%>
+          </div>
+        <% end %>
+        <p class="loginhere">
+          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-danger text-center d-inline-block' %>
+        </p>
+      </div>
+    </div>
+  </section>
+  <!-- <%= render 'layouts/footer' %> -->
+</main>
+<script>
+  var fileReader = new FileReader();
+  document.addEventListener("DOMContentLoaded", () => {
+    $('body').css('background-image','linear-gradient(to left, rgba(245, 241, 200, 0.6), rgb(247, 233, 231))');
+    $("select").imagepicker({
+      hide_select : true,
+      show_label  : true
+    });
+    $('#user_avatar').on('change', e => {
+      fileReader.readAsDataURL(e.target.files[0]);
+    });
+    $('#avatar_img').on('click', e => {
+      $('#user_avatar').click();
+    });
+    fileReader.onloadend = () => {
+      $('#avatar_img').attr('src',fileReader.result);
+    }
+  });
+</script>

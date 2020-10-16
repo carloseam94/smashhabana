@@ -21,8 +21,10 @@ Rails.application.config.assets.precompile += ['bootstrap/pluggins/_carousel.css
 Rails.application.config.assets.precompile += ['login/style.css']
 Rails.application.config.assets.precompile += ['page_loader.css']
 Rails.application.config.assets.precompile += ['font-awesome/css/font-awesome.css']
+Rails.application.config.assets.precompile += ['image-picker.css']
 
 
 # js
 Rails.application.config.assets.precompile += ['jquery/jquery.min.js']
 Rails.application.config.assets.precompile += ['bootstrap/bootstrap.bundle.min.js']
+Rails.application.config.assets.precompile += ['image-picker.js']

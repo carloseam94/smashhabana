@@ -6,4 +6,25 @@
     height: 30px;
     width: 30px;
     border-radius: 50%;
+    cursor: pointer;
+}
+
+.user-avatar-m {
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.thumbnail {
+    text-align: center;
+    border: none !important;
+}
+
+.image_picker_selector .selected {
+    background-color: #90ceed !important;
+}
+
+.thumbnail:hover {
+    cursor: pointer;
 }
