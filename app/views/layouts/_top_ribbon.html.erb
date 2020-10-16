@@ -16,6 +16,7 @@
           <li class="nav-item">
             <%= image_tag(user_avatar_url(current_user), class: 'user-avatar-s') %>
             <span><%= current_user&.username %></span>
+            <%= image_tag(user_character_icon_url(current_user), class: 'user-avatar-s') %>
             <%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete , class: 'nav-link d-inline-block'%>
           </li>
         <% else %>

@@ -7,11 +7,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one_attached :avatar
-  has_one_attached :main
+  belongs_to :character
 
-   # admin roles
+   #role
    GOD = 'g'
    ADMIN = 'a'
+   MEMBER = 'm'
 
    def to_param
        username

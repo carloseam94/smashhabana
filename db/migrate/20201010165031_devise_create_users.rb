@@ -3,10 +3,11 @@
 class DeviseCreateUsers < ActiveRecord::Migration[6.0]
   def change
     create_table :users do |t|
+      t.references :character, null: false
 
       t.string :full_name
       t.string :username
-      t.string :admin_role, limit: 1, null: true
+      t.string :role, limit: 1, null: true
       t.text :desc
 
       ## Database authenticatable
