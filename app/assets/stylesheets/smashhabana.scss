@@ -16,9 +16,23 @@
     cursor: pointer;
 }
 
+.hover-effect {
+    transition: all 0.2s ease-in-out;
+}
+
+.hover-effect:hover {
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
+    z-index  : 1;
+}
+
+
+//character picker
+
 .thumbnail {
     text-align: center;
     border: none !important;
+    transition: all 0.2s ease-in-out;
 }
 
 .image_picker_selector .selected {
@@ -27,4 +41,6 @@
 
 .thumbnail:hover {
     cursor: pointer;
+    transform: scale(1.1, 1.1);
+    z-index  : 1;
 }

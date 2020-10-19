@@ -26,9 +26,129 @@ Character.create!(
       full_name: 'Mario'
     },
     {
-      name: 'donkey-kong', # id => 2
+      name: 'dk', # id => 2
       full_name: 'Donkey Kong'
     },
+    {
+      name: 'link', # id => 3
+      full_name: 'Link'
+    },
+    {
+      name: 'samus', # id => 4
+      full_name: 'Samus'
+    },
+    {
+      name: 'samusd', # id => 5
+      full_name: 'Dark Samus'
+    },
+    {
+      name: 'yoshi', # id => 6
+      full_name: 'Yoshi'
+    },
+    {
+      name: 'kirby', # id => 7
+      full_name: 'Kirby'
+    },
+    {
+      name: 'fox', # id => 8
+      full_name: 'Fox'
+    },
+    {
+      name: 'pikachu', # id => 9
+      full_name: 'Pikachu'
+    },
+    {
+      name: 'luigi', # id => 10
+      full_name: 'Luigi'
+    },
+    {
+      name: 'ness', # id => 11
+      full_name: 'Ness'
+    },
+    {
+      name: 'captain', # id => 12
+      full_name: 'Captain Falcon'
+    },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
+    # {
+    #   name: 'donkey-kong', # id => 2
+    #   full_name: 'Donkey Kong'
+    # },
   ]
 )
 
@@ -36,7 +156,37 @@ c1 = Character.find(1)
 c1.icon = c1.icon.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/characters/mario.png')), filename: 'mario.png', content_type: 'image/png')
 
 c2 = Character.find(2)
-c2.icon = c2.icon.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/characters/donkey-kong.png')), filename: 'donkey-kong.png', content_type: 'image/png')
+c2.icon = c2.icon.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/characters/dk.png')), filename: 'dk.png', content_type: 'image/png')
+
+c3 = Character.find(3)
+c3.icon = c3.icon.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/characters/link.png')), filename: 'link.png', content_type: 'image/png')
+
+c4 = Character.find(4)
+c4.icon = c4.icon.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/characters/samus.png')), filename: 'samus.png', content_type: 'image/png')
+
+c5 = Character.find(5)
+c5.icon = c5.icon.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/characters/samusd.png')), filename: 'samusd.png', content_type: 'image/png')
+
+c6 = Character.find(6)
+c6.icon = c6.icon.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/characters/yoshi.png')), filename: 'yoshi.png', content_type: 'image/png')
+
+c7 = Character.find(7)
+c7.icon = c7.icon.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/characters/kirby.png')), filename: 'kirby.png', content_type: 'image/png')
+
+c8 = Character.find(8)
+c8.icon = c8.icon.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/characters/fox.png')), filename: 'fox.png', content_type: 'image/png')
+
+c9 = Character.find(9)
+c9.icon = c9.icon.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/characters/pikachu.png')), filename: 'pikachu.png', content_type: 'image/png')
+
+c10 = Character.find(10)
+c10.icon = c10.icon.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/characters/luigi.png')), filename: 'luigi.png', content_type: 'image/png')
+
+c11 = Character.find(11)
+c11.icon = c11.icon.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/characters/ness.png')), filename: 'ness.png', content_type: 'image/png')
+
+c12 = Character.find(12)
+c12.icon = c12.icon.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/characters/captain.png')), filename: 'captain.png', content_type: 'image/png')
 
 p "#{Character.count} characters created"
 puts
