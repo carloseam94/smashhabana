@@ -14,7 +14,7 @@ puts
 
 ActiveRecord::Base.connection.execute('DELETE FROM active_storage_attachments')
 ActiveRecord::Base.connection.execute('DELETE FROM users')
-# ActiveRecord::Base.connection.execute('DELETE FROM articles')
+ActiveRecord::Base.connection.execute('DELETE FROM articles')
 ActiveRecord::Base.connection.execute('DELETE FROM characters')
 
 p 'Creating characters...'
@@ -264,32 +264,51 @@ puts
 
 p ' '
 
-# p 'Creating articles...'
-# ActiveRecord::Base.connection.execute('ALTER TABLE articles AUTO_INCREMENT = 1')
-# Article.create!(
-#   [
-#     {
-#       title: 'El Parque Agramonte: Aula Magna de Historia',
-#       summary: 'Las villas fundadas por los españoles en América se desarrollaron alrededor de una Plaza de Armas rectangular delimitada por calles a las que daban frente la iglesia, el ayuntamiento y las viviendas de los vecinos principales.',
-#       data: { time: 1_598_295_752_651, blocks: [{ type: 'header', data: { text: 'El Parque Agramonte: Aula Magna de Historia', level: 2 } }], version: '2.18.0' }.to_json,
-#       user_id: 3,
-#       seo_id: 'el-parque-agramonte-aula-magna-de-historia',
-#       cover_metadata: '{"left":0,"top":0,"width":1440,"height":1002.25,"naturalWidth":1440,"naturalHeight":1055}',
-#       cover_metadata_mobile: '{"left":0,"top":0,"width":700,"height":1002.25,"naturalWidth":700,"naturalHeight":1055}',
-#       cover_info: 'Info for cover 1',
-#       status: Article::PUBLISHED,
-#       description: 'descriptive text for article1',
-#       category: Article::HISTORY,
-#       cover_opacity: 0.76
-#     },
-#   ]
-# )
+p 'Creating articles...'
+ActiveRecord::Base.connection.execute('ALTER TABLE articles AUTO_INCREMENT = 1')
+Article.create!(
+  [
+    {
+      title: 'Primer Articulo de la Comunidad Smash Habana',
+      summary: 'Este es nuestro primer articulo, este en especifico es uno de prueba, creado desde el seed de la base de datos. En produccion seran generados de manera dinamica por los admin.',
+      data: { time: 1_598_295_752_651, blocks: [{ type: 'header', data: { text: 'El Parque Agramonte: Aula Magna de Historia', level: 2 } }], version: '2.18.0' }.to_json,
+      user_id: 1,
+      seo_id: 'primer-articulo-smash-habana',
+      status: Article::PUBLISHED,
+      is_pinned: Article::UNPINNED,
+      description: 'this is a description field to seo',
+      category: Article::NEWS
+    },
+    {
+      title: 'Segundo Articulo de la Comunidad Smash Habana',
+      summary: 'Este es nuestro segundo articulo, este en especifico es uno de prueba, creado desde el seed de la base de datos. En produccion seran generados de manera dinamica por los admin.',
+      data: { time: 1_598_295_752_651, blocks: [{ type: 'header', data: { text: 'El Parque Agramonte: Aula Magna de Historia', level: 2 } }], version: '2.18.0' }.to_json,
+      user_id: 1,
+      seo_id: 'primer-articulo-smash-habana',
+      status: Article::PUBLISHED,
+      is_pinned: Article::UNPINNED,
+      description: 'this is a description field to seo',
+      category: Article::NEWS
+    },
+    {
+      title: 'Primer Articulo de la Comunidad Smash Habana',
+      summary: 'Este es nuestro primer articulo, este en especifico es uno de prueba, creado desde el seed de la base de datos. En produccion seran generados de manera dinamica por los admin.',
+      data: { time: 1_598_295_752_651, blocks: [{ type: 'header', data: { text: 'El Parque Agramonte: Aula Magna de Historia', level: 2 } }], version: '2.18.0' }.to_json,
+      user_id: 1,
+      seo_id: 'primer-articulo-smash-habana',
+      status: Article::PUBLISHED,
+      is_pinned: Article::UNPINNED,
+      description: 'this is a description field to seo',
+      category: Article::NEWS
+    },
+  ]
+)
 
-# a1 = Article.find(1)
-# a1.cover = a1.cover.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/cover1.jpg')), filename: 'cover1.jpg', content_type: 'image/jpg')
+a1 = Article.find(1)
+a1.cover = a1.cover.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/articles/cover1.jpg')), filename: 'cover1.jpg', content_type: 'image/jpg')
 
-# p "#{Article.count} articles created"
-# puts
+p "#{Article.count} articles created"
+puts
 
 # p 'Creating images...'
 # ActiveRecord::Base.connection.execute('ALTER TABLE images AUTO_INCREMENT = 1')

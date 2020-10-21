@@ -1,0 +1,10 @@
+<div class="row">
+  <% articles.each do |article| %>
+    <div class="col-lg-4">
+      <%= image_tag(article_cover_url(article), class: 'rounded-circle', width: "140", height: "140") %>
+      <h2><%= article.title %></h2>
+      <p><%= article.summary %></p>
+      <p><a class="btn btn-secondary" href="#" role="button">Ver mas &raquo;</a></p>
+    </div>
+  <% end %>
+</div>
