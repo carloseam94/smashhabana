@@ -199,7 +199,7 @@ User.create!(
   [
     {
       email: 'carloseam94@gmail.com', # id => 1
-      full_name: 'Carlos Eduardo Aguilera Medina',
+      full_name: 'Carlos Aguilera',
       username: 'carlos',
       password: 'Hero8.88',
       role: User::GOD,
@@ -208,7 +208,7 @@ User.create!(
     },
     {
       email: 'jorge@gmail.com', # id => 2
-      full_name: 'Jorge Algo Algo',
+      full_name: 'Jorge Castro',
       username: 'jorge',
       password: 'jorgito',
       role: User::GOD,
@@ -283,7 +283,7 @@ Article.create!(
       title: 'Segundo Articulo de la Comunidad Smash Habana',
       summary: 'Este es nuestro segundo articulo, este en especifico es uno de prueba, creado desde el seed de la base de datos. En produccion seran generados de manera dinamica por los admin.',
       data: { time: 1_598_295_752_651, blocks: [{ type: 'header', data: { text: 'Titulo', level: 2 } }], version: '2.18.0' }.to_json,
-      user_id: 1,
+      user_id: 2,
       seo_id: 'segundo-articulo-smash-habana',
       status: Article::PUBLISHED,
       is_pinned: Article::UNPINNED,
@@ -294,10 +294,32 @@ Article.create!(
       title: 'Tercer Articulo de la Comunidad Smash Habana',
       summary: 'Este es nuestro tercer articulo, este en especifico es uno de prueba, creado desde el seed de la base de datos. En produccion seran generados de manera dinamica por los admin.',
       data: { time: 1_598_295_752_651, blocks: [{ type: 'header', data: { text: 'Titulo', level: 2 } }], version: '2.18.0' }.to_json,
-      user_id: 1,
+      user_id: 3,
       seo_id: 'tercer-articulo-smash-habana',
       status: Article::PUBLISHED,
       is_pinned: Article::UNPINNED,
+      description: 'this is a description field to seo',
+      category: Article::NEWS
+    },
+    {
+      title: 'Conoce la comunidad Smash Habana, La mas grande en su tipo del pais.',
+      summary: 'Este es un texto generico que sirve de summary, este en especifico es uno de prueba, creado desde el seed de la base de datos. En produccion seran generados de manera dinamica por los admin.',
+      data: { time: 1_598_295_752_651, blocks: [{ type: 'header', data: { text: 'Titulo', level: 2 } }], version: '2.18.0' }.to_json,
+      user_id: 1,
+      seo_id: 'conoce-la-comunidad-smash-habana',
+      status: Article::PUBLISHED,
+      is_pinned: Article::PINNED,
+      description: 'this is a description field to seo',
+      category: Article::NEWS
+    },
+    {
+      title: 'Todos los personajes pueden ser divertidos y efectivos si se usan bien.',
+      summary: 'Veamos una guia del ABC de cada uno de los personajes de Super Smash Bross. Ultimate. Seguro que algunos de estos tips te ayuda a decidir cual sera tu main.',
+      data: { time: 1_598_295_752_651, blocks: [{ type: 'header', data: { text: 'Titulo', level: 2 } }], version: '2.18.0' }.to_json,
+      user_id: 1,
+      seo_id: 'guia-de-personajes',
+      status: Article::PUBLISHED,
+      is_pinned: Article::PINNED,
       description: 'this is a description field to seo',
       category: Article::NEWS
     },
@@ -306,6 +328,15 @@ Article.create!(
 
 a1 = Article.find(1)
 a1.cover = a1.cover.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/articles/cover1.jpg')), filename: 'cover1.jpg', content_type: 'image/jpg')
+
+a2 = Article.find(2)
+a2.cover = a2.cover.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/articles/cover2.jpg')), filename: 'cover2.jpg', content_type: 'image/jpg')
+
+a4 = Article.find(4)
+a4.cover = a4.cover.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/articles/cover4.jpg')), filename: 'cover4.jpg', content_type: 'image/jpg')
+
+a5 = Article.find(5)
+a5.cover = a5.cover.attach(io: File.open(File.join(Rails.root, 'tmp/seeds/articles/cover5.png')), filename: 'cover5.png', content_type: 'image/jpg')
 
 p "#{Article.count} articles created"
 puts
