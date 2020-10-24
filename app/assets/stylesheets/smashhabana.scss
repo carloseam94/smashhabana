@@ -3,17 +3,17 @@
 // }
 
 .user-avatar-s {
-    height: 30px;
-    width: 30px;
+    height       : 30px;
+    width        : 30px;
     border-radius: 50%;
-    cursor: pointer;
+    cursor       : pointer;
 }
 
 .user-avatar-m {
-    height: 120px;
-    width: 120px;
+    height       : 120px;
+    width        : 120px;
     border-radius: 50%;
-    cursor: pointer;
+    cursor       : pointer;
 }
 
 .hover-effect {
@@ -21,17 +21,67 @@
 }
 
 .hover-effect:hover {
-    cursor: pointer;
+    cursor   : pointer;
     transform: scale(1.1, 1.1);
     z-index  : 1;
 }
 
 
+// article card
+.article-card {
+    border-radius   : 20px;
+    background-image: linear-gradient(to left, rgba(251, 249, 234, 0.6), rgb(244, 232, 231));
+}
+
+.article-card>a>img {
+    border-top-left-radius : 20px;
+    border-top-right-radius: 20px;
+    width                  : 100%;
+    height                 : auto;
+}
+
+.article-card>a:hover {
+    text-decoration: none !important;
+}
+
+.article-card>a:hover>h2 {
+    color: #2993f2 !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.article-card>a>h2 {
+    color: #5c5c5c;
+}
+
+.article-card>.cfooter {
+    margin-left : .75rem;
+    margin-right: .75rem;
+}
+
+.article-card>.cfooter>a>img {
+    width        : 50px;
+    height       : 50px;
+    border-radius: 50%;
+}
+
+.article-card>.cfooter>a:hover {
+    text-decoration: none !important;
+}
+
+.article-card>.cfooter>a:hover span {
+    color: #2993f2 !important;
+    transition: all 0.2s ease-in-out;
+}
+
+.article-card>.cfooter span {
+    color: #6c757d;
+}
+
 //character picker
 
 .thumbnail {
     text-align: center;
-    border: none !important;
+    border    : none !important;
     transition: all 0.2s ease-in-out;
 }
 
@@ -40,7 +90,7 @@
 }
 
 .thumbnail:hover {
-    cursor: pointer;
+    cursor   : pointer;
     transform: scale(1.1, 1.1);
     z-index  : 1;
 }

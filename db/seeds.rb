@@ -271,7 +271,7 @@ Article.create!(
     {
       title: 'Primer Articulo de la Comunidad Smash Habana',
       summary: 'Este es nuestro primer articulo, este en especifico es uno de prueba, creado desde el seed de la base de datos. En produccion seran generados de manera dinamica por los admin.',
-      data: { time: 1_598_295_752_651, blocks: [{ type: 'header', data: { text: 'El Parque Agramonte: Aula Magna de Historia', level: 2 } }], version: '2.18.0' }.to_json,
+      data: { time: 1_598_295_752_651, blocks: [{ type: 'header', data: { text: 'Titulo', level: 2 } }], version: '2.18.0' }.to_json,
       user_id: 1,
       seo_id: 'primer-articulo-smash-habana',
       status: Article::PUBLISHED,
@@ -282,20 +282,20 @@ Article.create!(
     {
       title: 'Segundo Articulo de la Comunidad Smash Habana',
       summary: 'Este es nuestro segundo articulo, este en especifico es uno de prueba, creado desde el seed de la base de datos. En produccion seran generados de manera dinamica por los admin.',
-      data: { time: 1_598_295_752_651, blocks: [{ type: 'header', data: { text: 'El Parque Agramonte: Aula Magna de Historia', level: 2 } }], version: '2.18.0' }.to_json,
+      data: { time: 1_598_295_752_651, blocks: [{ type: 'header', data: { text: 'Titulo', level: 2 } }], version: '2.18.0' }.to_json,
       user_id: 1,
-      seo_id: 'primer-articulo-smash-habana',
+      seo_id: 'segundo-articulo-smash-habana',
       status: Article::PUBLISHED,
       is_pinned: Article::UNPINNED,
       description: 'this is a description field to seo',
-      category: Article::NEWS
+      category: Article::DISCUSSION
     },
     {
-      title: 'Primer Articulo de la Comunidad Smash Habana',
-      summary: 'Este es nuestro primer articulo, este en especifico es uno de prueba, creado desde el seed de la base de datos. En produccion seran generados de manera dinamica por los admin.',
-      data: { time: 1_598_295_752_651, blocks: [{ type: 'header', data: { text: 'El Parque Agramonte: Aula Magna de Historia', level: 2 } }], version: '2.18.0' }.to_json,
+      title: 'Tercer Articulo de la Comunidad Smash Habana',
+      summary: 'Este es nuestro tercer articulo, este en especifico es uno de prueba, creado desde el seed de la base de datos. En produccion seran generados de manera dinamica por los admin.',
+      data: { time: 1_598_295_752_651, blocks: [{ type: 'header', data: { text: 'Titulo', level: 2 } }], version: '2.18.0' }.to_json,
       user_id: 1,
-      seo_id: 'primer-articulo-smash-habana',
+      seo_id: 'tercer-articulo-smash-habana',
       status: Article::PUBLISHED,
       is_pinned: Article::UNPINNED,
       description: 'this is a description field to seo',

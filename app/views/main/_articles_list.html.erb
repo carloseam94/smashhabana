@@ -1,10 +1,20 @@
 <div class="row">
   <% articles.each do |article| %>
     <div class="col-lg-4">
-      <%= image_tag(article_cover_url(article), class: 'rounded-circle', width: "140", height: "140") %>
-      <h2><%= article.title %></h2>
-      <p><%= article.summary %></p>
-      <p><a class="btn btn-secondary" href="#" role="button">Ver mas &raquo;</a></p>
+      <div class="article-card" style="overflow:hidden">
+        <%= link_to article do %>
+          <%= image_tag(article_cover_url(article), class: 'mb-3 hover-effect') %>
+          <h2><%= article.title %></h2>
+        <% end %>
+        <p class="text-left"><%= article.summary %></p>
+        <div class="cfooter pb-3 text-left">
+          <%= link_to article.user do %>
+            <%= image_tag(user_avatar_url(article.user), class: 'hover-effect') %> 
+            <span class="small text-monospace ml-2"><%= article.user.full_name %></span>
+          <% end %>
+          <span class="small text-monospace ml-2"><%= article.created_at.strftime('%F') %></span>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>

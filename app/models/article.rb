@@ -12,5 +12,10 @@ class Article < ApplicationRecord
 
     #category
     NEWS = 'n'
+    DISCUSSION = 'd'
+
+    def to_param
+      seo_id
+    end
 
 end
